@@ -1114,15 +1114,15 @@
     </div>
     <div class="side-menu-section">
         <div class="side-menu-label">Calendário</div>
-        <button class="about-toggle" id="aboutToggle" aria-label="Sobre este calendário">📜 Sobre este calendário</button>
-        <button class="about-toggle" id="purificationToggle" aria-label="Período de Purificação">🕯️ Período de Purificação</button>
-        <button class="about-toggle" id="silenceToggle" aria-label="Silêncio Ritualístico">🤫 Silêncio Ritualístico</button>
+        <button class="about-toggle" id="aboutToggle" aria-label="Sobre este calendário"> Sobre este calendário</button>
+        <button class="about-toggle" id="purificationToggle" aria-label="Período de Purificação"> Período de Purificação</button>
+        <button class="about-toggle" id="silenceToggle" aria-label="Silêncio Ritualístico"> Silêncio Ritualístico</button>
     </div>
     <div class="side-menu-section">
         <div class="side-menu-label">Aplicativo</div>
         <button class="install-btn" id="installBtn" aria-label="Instalar aplicativo">📲 Baixar app</button>
         <button class="notif-toggle" id="notifToggle" aria-label="Ativar ou desativar notificações">
-            <span class="notif-icon">🔔</span><span id="notifStatus">Ativar/desativar notificações</span>
+            <span class="notif-icon"></span><span id="notifStatus">Ativar/desativar notificações</span>
         </button>
     </div>
     <div class="side-menu-section">
@@ -1138,7 +1138,7 @@
 <!-- ===== NOTIFICATION PERMISSION ===== -->
 <div class="notif-permission" id="notifPermission" role="alert">
     <div class="notif-msg">
-        <strong>🔔 Lembretes diários</strong><br>
+        <strong> Lembretes diários</strong><br>
         Receba notificações com os festivais do dia.
     </div>
     <button class="notif-btn" id="notifAllow" aria-label="Ativar lembretes">Ativar</button>
@@ -1270,11 +1270,11 @@
         const toggleEl = document.getElementById('notifToggle');
         
         if (notificationPermission === 'granted') {
-            statusEl.textContent = 'Lembretes ativos ✅';
+            statusEl.textContent = 'Lembretes ativos';
             toggleEl.classList.add('enabled');
             document.getElementById('notifPermission').classList.remove('show');
         } else if (notificationPermission === 'denied') {
-            statusEl.textContent = 'Lembretes bloqueados ❌';
+            statusEl.textContent = 'Lembretes bloqueados';
             toggleEl.classList.remove('enabled');
         } else {
             statusEl.textContent = 'Ativar lembretes diários';
