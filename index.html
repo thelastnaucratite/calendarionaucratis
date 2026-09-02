@@ -1228,11 +1228,11 @@
 
             <div class="side">
                 <div class="box">
-                    <h3>🏛️ Festivais do mês</h3>
+                    <h3> Festivais do mês</h3>
                     <div class="flist" id="flist"></div>
                 </div>
                 <div class="box">
-                    <h3>📜 Legenda</h3>
+                    <h3> Legenda</h3>
                     <div class="legend">
                         <div><span class="phase">☾</span> Noumenia — lua nova</div>
                         <div><span class="phase">●</span> Deipnon — lua escura</div>
@@ -1321,7 +1321,7 @@
                 self.addEventListener('activate', event => { event.waitUntil(clients.claim()); });
                 self.addEventListener('push', event => {
                     const data = event.data ? event.data.json() : {};
-                    const title = data.title || '🏛️ Calendário Naucratita';
+                    const title = data.title || 'Calendário Naucratita';
                     const options = {
                         body: data.body || 'Verifique os festivais do dia',
                         icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23551b0d"/><circle cx="50" cy="50" r="30" fill="%23c9a656"/><text x="50" y="58" text-anchor="middle" fill="%23ffffff" font-size="30" font-family="serif">🏛️</text></svg>',
@@ -1362,7 +1362,7 @@
                 body += `Hoje é ${info.dayNum} de ${info.monthName}. `;
                 if (info.festivals) body += `Celebramos: ${info.festivals}.`;
             }
-            new Notification('🏛️ Calendário Naucratita', {
+            new Notification('Calendário Naucratita', {
                 body: body,
                 icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23551b0d"/><circle cx="50" cy="50" r="30" fill="%23c9a656"/><text x="50" y="58" text-anchor="middle" fill="%23ffffff" font-size="30" font-family="serif">🏛️</text></svg>',
                 badge: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23551b0d"/><text x="50" y="62" text-anchor="middle" fill="%23ffffff" font-size="40" font-family="serif">🏛️</text></svg>',
@@ -1407,22 +1407,22 @@
         if (notificationPermission !== 'granted') return;
         const info = getTodayInfo();
         if (!info) return;
-        let title = `🏛️ ${info.dayNum} de ${info.monthName}`;
+        let title = `${info.dayNum} de ${info.monthName}`;
         let body = '';
-        if (info.festivals) body = `🎉 ${info.festivals}`;
+        if (info.festivals) body = `${info.festivals}`;
         else if (info.isNoumenia) body = `☾ Noumenia — Lua Nova`;
         else if (info.isDeipnon) body = `● Deipnon — Lua escura`;
         else if (info.fixed) {
             title = `Saudações, naucratita!`;
             body = `Hoje é dia ${fmtGregFull(new Date())}, honre ${info.fixed}.`;
         }
-        else body = `📜 Dia ${info.dayNum} de ${info.monthName}`;
+        else body = `Dia ${info.dayNum} de ${info.monthName}`;
         
         if (info.upcomingFestivals && info.upcomingFestivals.length > 0) {
             const nextFest = info.upcomingFestivals[0];
             const daysAhead = nextFest.day - info.dayNum;
             const dayText = daysAhead === 1 ? 'amanhã' : `em ${daysAhead} dias`;
-            body += ` · 🔮 ${nextFest.name} (${dayText})`;
+            body += ` · ${nextFest.name} (${dayText})`;
         }
         
         try {
@@ -1816,23 +1816,23 @@
             hasFestival = true;
         }
         if (info.festivals) {
-            festHTML += `<div class="reminder-fest">🏛️ ${info.festivals}</div>`;
+            festHTML += `<div class="reminder-fest">${info.festivals}</div>`;
             hasFestival = true;
         }
         if (info.fixed) {
             if (info.fixed === "Início do período de purificação") {
-                festHTML += `<div class="reminder-fest">⚡ Saudações, naucratita! Hoje inicia-se o período de purificação!</div>`;
+                festHTML += `<div class="reminder-fest"> Saudações, naucratita! Hoje inicia-se o período de purificação!</div>`;
             } else {
-                festHTML += `<div class="reminder-fest">⚡ Saudações, naucratita! Hoje é dia de honrar ${info.fixed}.</div>`;
+                festHTML += `<div class="reminder-fest"> Saudações, naucratita! Hoje é dia de honrar ${info.fixed}.</div>`;
             }
             hasFestival = true;
         }
         if (!hasFestival) {
-            festHTML = `<div class="reminder-empty">📜 Nenhum festival especial hoje.<br>Um dia para reflexão e conexão.</div>`;
+            festHTML = `<div class="reminder-empty"> Nenhum festival especial hoje.<br>Um dia para reflexão e conexão.</div>`;
         }
         if (info.upcomingFestivals.length > 0) {
             festHTML += `<div class="reminder-upcoming">`;
-            festHTML += `<div class="reminder-upcoming-title">🔮 Próximos festivais</div>`;
+            festHTML += `<div class="reminder-upcoming-title"> Próximos festivais</div>`;
             info.upcomingFestivals.forEach(f => {
                 const daysAhead = f.day - info.dayNum;
                 const dayText = daysAhead === 1 ? 'amanhã' : `em ${daysAhead} dias`;
@@ -1961,16 +1961,16 @@
             <div class="m-greg">${fmtGreg(info.dt)} · ${WD[info.dt.getDay()]}</div>`;
 
         if(info.isNoumenia){
-            html += `<div class="m-section"><div class="m-label">🌙 Fase lunar</div><div class="m-fest">☾ Noumenia — lua nova, início do mês de ${m.name}</div></div>`;
+            html += `<div class="m-section"><div class="m-label"> Fase lunar</div><div class="m-fest">☾ Noumenia — lua nova, início do mês de ${m.name}</div></div>`;
         }
         if(info.isDeipnon){
-            html += `<div class="m-section"><div class="m-label">🌙 Fase lunar</div><div class="m-fest">● Deipnon — lua escura, encerramento do mês de ${m.name}</div></div>`;
+            html += `<div class="m-section"><div class="m-label"> Fase lunar</div><div class="m-fest">● Deipnon — lua escura, encerramento do mês de ${m.name}</div></div>`;
         }
         if(info.fest){
-            html += `<div class="m-section"><div class="m-label">🏛️ Festival</div><div class="m-fest">${info.fest}</div></div>`;
+            html += `<div class="m-section"><div class="m-label"> Festival</div><div class="m-fest">${info.fest}</div></div>`;
         }
         if(info.fixed){
-            html += `<div class="m-section"><div class="m-label">⚡ Dedicação fixa</div><div class="m-body">${info.fixed}</div></div>`;
+            html += `<div class="m-section"><div class="m-label"> Dedicação fixa</div><div class="m-body">${info.fixed}</div></div>`;
         }
         if(!info.fest && !info.fixed && !info.isNoumenia && !info.isDeipnon){
             html += `<div class="m-section"><div class="m-body" style="color:var(--text-dim);">Nenhuma dedicação ou festival registrado neste dia.</div></div>`;
@@ -1980,7 +1980,7 @@
         const cultMessageHtml = cultMessages
             .map((msg, i) => `<p style="margin:${i < cultMessages.length - 1 ? '0 0 12px' : '0'};">${msg}</p>`)
             .join('');
-        html += `<div class="m-section"><div class="m-label">🙏 Culto diário</div><div class="m-body">${cultMessageHtml}</div></div>`;
+        html += `<div class="m-section"><div class="m-label"> Culto diário</div><div class="m-body">${cultMessageHtml}</div></div>`;
 
         modalContent.innerHTML = html;
         overlayModal.classList.add('open');
@@ -2179,7 +2179,7 @@
     const info = getTodayInfo();
     if (info) {
         console.log(`📆 ${info.dayNum} de ${info.monthName}`);
-        if (info.festivals) console.log(`🎉 ${info.festivals}`);
+        if (info.festivals) console.log(`${info.festivals}`);
     }
 </script>
 </body>
