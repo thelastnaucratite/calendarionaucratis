@@ -2330,7 +2330,7 @@
         const el = document.getElementById('streakText');
         if(!el) return;
         const n = computeStreak();
-        el.textContent = `Festivais Celebrados: ${n} festivais${n===1?'':'s'}`;
+        el.textContent = `Festivais Celebrados: ${n} festivais ${n===1?'':}`;
     }
 
     // ===== CONTAGEM REGRESSIVA PARA O PRÓXIMO FESTIVAL =====
