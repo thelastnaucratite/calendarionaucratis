@@ -1284,7 +1284,7 @@
             <span class="notif-icon"></span><span id="notifStatus">Ativar/desativar notificações</span>
         </button>
         <div class="notif-toggle" id="streakDisplay" style="cursor:default;">
-            <span class="notif-icon">🔥</span><span id="streakText">Sequência: 0 dias</span>
+            <span class="notif-icon">🔥</span><span id="streakText">Ritos Celebrados: 0 dias</span>
         </div>
     </div>
     <div class="side-menu-section">
@@ -2330,7 +2330,7 @@
         const el = document.getElementById('streakText');
         if(!el) return;
         const n = computeStreak();
-        el.textContent = `Sequência: ${n} dia${n===1?'':'s'}`;
+        el.textContent = `Ritos Celebrados: ${n} dia${n===1?'':'s'}`;
     }
 
     // ===== CONTAGEM REGRESSIVA PARA O PRÓXIMO FESTIVAL =====
